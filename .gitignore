@@ -1,0 +1,93 @@
+# =========================
+# Maven
+# =========================
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# =========================
+# Gradle
+# =========================
+.gradle/
+build/
+
+# =========================
+# IDE Files
+# =========================
+.idea/
+*.iml
+
+.vscode/
+
+.classpath
+.project
+.settings/
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+
+# =========================
+# Spring Boot
+# =========================
+spring.log
+
+# =========================
+# Environment / Secrets
+# =========================
+.env
+.env.*
+
+# Local config files
+application-local.properties
+application-local.yml
+application-secret.properties
+application-secret.yml
+
+# =========================
+# Docker
+# =========================
+docker-compose.override.yml
+
+# Docker volumes
+postgres-data/
+kafka-data/
+zookeeper-data/
+
+# =========================
+# Kafka
+# =========================
+*.kafka
+
+# =========================
+# PostgreSQL
+# =========================
+*.sql.gz
+*.backup
+
+# =========================
+# Temporary Files
+# =========================
+*.tmp
+*.swp
+*.pid
+
+# =========================
+# Test Reports
+# =========================
+surefire-reports/
+failsafe-reports/
+
+# =========================
+# Java
+# =========================
+*.class
+hs_err_pid*
+replay_pid*
