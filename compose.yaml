@@ -4,9 +4,10 @@
 
 services:
   server:
+    container_name: patient-container
     image: patient-service
     build:
-      context: .
+      context: ./patient-service
     ports:
       - 4001:8080
     depends_on:
@@ -18,12 +19,31 @@ services:
       - SPRING_DATASOURCE_PASSWORD=password
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
       - SPRING_SQL_INIT_MODE=always
-      
+      - BILLING_SERVICE_ADDRESS=billing-service
+      - BILLING_SERVICE_GRPC_PORT=9001
+
+
+
+
+  billing-service:
+    container_name: billing-container
+    image: billing-service
+    build:
+      context: ./billing-service
+    ports:
+      - 4002:4002
+      - 9001:9001
+    depends_on:
+      db:
+        condition: service_healthy
+
+
   db:
+    container_name: db-container
     image: postgres:16-alpine
     restart: always
     ports:
-      - 5432:5432
+      - 5433:5432
     volumes:
       - db-data:/var/lib/postgresql/data
     environment:
